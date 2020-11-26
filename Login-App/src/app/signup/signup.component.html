@@ -1,0 +1,113 @@
+<section fxLayout="row" fxLayoutAlign="center center">
+  <!-- <p>{{ loginForm.value | json }}</p> -->
+  <mat-card class="mat-card-login">
+    <mat-card-header class="mat-card-login-header">
+      <mat-card-title>
+        <h1 class="mat-h1" style="color: darkslateblue">Signup</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <!-- <img src="../../assets/images/account_circle-black-18dp.svg" alt="user" mat-card-image class="mat-card-login-image"> -->
+    <mat-card-content>
+      <form
+        novalidate
+        [formGroup]="signupForm"
+        (ngSubmit)="onSubmit()"
+        fxLayout="column"
+        fxLayoutAlign="space-around center"
+        fxLayoutGap="2vw"
+      >
+        <mat-form-field class="form-width">
+          <input
+            class="mat-card-login-input"
+            matInput
+            formControlName="username"
+            type="text"
+            placeholder="Username"
+            required
+          />
+          <mat-error *ngIf="formErrors.username">{{
+            formErrors.username
+          }}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-width">
+          <input
+            class="mat-card-login-input"
+            matInput
+            formControlName="email"
+            type="email"
+            placeholder="Email"
+            required
+          />
+          <mat-error *ngIf="formErrors.email">{{ formErrors.email }}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-width">
+          <input
+            class="mat-card-login-input"
+            matInput
+            formControlName="password"
+            placeholder="Password"
+            [type]="passHide ? 'password' : 'text'"
+            required
+          />
+          <button
+            class="mat-card-login-input"
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="passHide = !passHide"
+          >
+            <mat-icon>{{
+              passHide ? "visibility_off" : "visibility_on"
+            }}</mat-icon>
+          </button>
+          <mat-error *ngIf="formErrors.password">{{
+            formErrors.password
+          }}</mat-error>
+        </mat-form-field>
+        <!-- <section
+          class="form-width"
+          fxLayout.lt-md="column"
+          fxLayoutAlign.lt-md="center center"
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <mat-form-field class="mat-card-login-input" required>
+            <mat-label>Select Profession</mat-label>
+            <mat-select>
+              <mat-option
+                *ngFor="let profession of professions"
+                [value]="profession"
+                >{{ profession }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="mat-card-login-input" required>
+            <mat-label>Select Course</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let course of courses" [value]="course">{{
+                course
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </section> -->
+        <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 50%;">
+          <button
+            mat-button
+            type="submit"
+            style="background-color: blueviolet; color: whitesmoke"
+          >
+            Submit
+          </button>
+          <button
+            mat-button
+            type="reset"
+            style="background-color: grey; color: whitesmoke"
+            [routerLink]="'/'"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>

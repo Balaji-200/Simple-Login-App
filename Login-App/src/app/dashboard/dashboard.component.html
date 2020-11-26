@@ -1,0 +1,11 @@
+<mat-toolbar style="background-color: transparent;">
+    <section fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
+        <h1 style="color: darkslateblue;">Welcome</h1>
+        <button mat-button type="submit" style="background-color: darkslateblue; color:white" (click)="onLogout()">Log Out</button>
+    </section>
+</mat-toolbar>
+<div *ngIf="message" fxLayout="column" fxLayoutAlign="center center" style="height: 60vh;">
+    <div fxLayout="row" fxLayoutAlign="center center" style="width: 80vw;">
+        <h1>Hello {{ message }}, <br>This is just a simple Signup/Login angular app.</h1>
+    </div>
+</div>

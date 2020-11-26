@@ -1,0 +1,8 @@
+::ng-deep snack-bar-container.custom-snackbar-class {
+    background: blueviolet;
+  }
+  
+  ::ng-deep .custom-snackbar-class .mat-simple-snackbar {
+      font-size: large;
+    color: white;
+  }

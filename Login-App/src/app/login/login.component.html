@@ -1,0 +1,70 @@
+<section fxLayout="row" fxLayoutAlign="center center">
+  <!-- <p>{{ loginForm.value | json }}</p> -->
+  <mat-card class="mat-card-login">
+    <mat-card-header class="mat-card-login-header">
+      <mat-card-title>
+        <h1 style="color: darkslateblue;">Login</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <!-- <img src="../../assets/images/account_circle-black-18dp.svg" alt="user" mat-card-image class="mat-card-login-image"> -->
+    <mat-card-content>
+      <form
+        novalidate
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
+        fxLayout="column"
+        fxLayoutAlign="space-around center"
+        fxLayoutGap="2vw"
+      >
+        <mat-form-field class="form-width">
+          <input
+            class="mat-card-login-input"
+            matInput
+            formControlName="username"
+            type="text"
+            placeholder="Username"
+            required
+          />
+          <mat-error *ngIf="formErrors.username">{{
+            formErrors.username
+          }}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-width">
+          <input
+            class="mat-card-login-input"
+            matInput
+            formControlName="password"
+            placeholder="Password"
+            [type]="passHide ? 'password' : 'text'"
+            required
+          />
+          <button
+            class="mat-card-login-input"
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="passHide = !passHide"
+          >
+            <mat-icon>{{
+              passHide ? "visibility_off" : "visibility_on"
+            }}</mat-icon>
+          </button>
+          <mat-error *ngIf="formErrors.password">{{
+            formErrors.password
+          }}</mat-error>
+        </mat-form-field>
+        <h3 class="mat-h3">
+          Don't have an account yet?
+          <a [routerLink]="['/signup']">Signup</a> here.
+        </h3>
+        <button
+          mat-button
+          type="submit"
+          style="background-color: blueviolet; color: whitesmoke"
+        >
+          Login
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>
