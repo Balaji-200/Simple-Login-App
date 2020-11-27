@@ -10,7 +10,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  SERVER: String = "http://192.168.0.105:3000";
+  SERVER: String = "https://simple-login-app-296907.el.r.appspot.com"; //App Engine Url
 
   public signup(data): Observable<any> {
     const header = new HttpHeaders().set('Content-Type', 'application/json');
